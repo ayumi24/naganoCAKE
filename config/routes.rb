@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "public/homes#top"
+  resources :addresses, onry: [:index, :edit, :create, :update, :destroy]
 
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
