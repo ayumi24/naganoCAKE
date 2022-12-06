@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
   namespace :admin do
+    resources :items, only: [:new, :index, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
