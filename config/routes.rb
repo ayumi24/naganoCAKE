@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
   root to: "public/homes#top"
 
   namespace :admin do
@@ -14,6 +10,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
