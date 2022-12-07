@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_06_114733) do
+ActiveRecord::Schema.define(version: 2022_12_07_123508) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 2022_12_06_114733) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "amount"
-    t.integer "item_id"
-    t.integer "customer_id"
+    t.integer "amount", null: false
+    t.integer "item_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_cart_items_on_customer_id"
@@ -109,10 +109,25 @@ ActiveRecord::Schema.define(version: 2022_12_06_114733) do
     t.index ["genre_id"], name: "index_items_on_genre_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
+    t.integer "postage", null: false
+    t.integer "price", null: false
+    t.integer "payment", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.integer "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "customers"
   add_foreign_key "cart_items", "customers"
   add_foreign_key "cart_items", "items"
   add_foreign_key "items", "genres"
+  add_foreign_key "orders", "customers"
 end
