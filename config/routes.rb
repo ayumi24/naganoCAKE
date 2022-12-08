@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    get 'homes/about'
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
