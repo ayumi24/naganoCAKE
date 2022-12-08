@@ -1,6 +1,7 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @customer, url: new_customer_session_path do |f| %>
+<h3>会員の方はこちらからログイン</h3>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -19,8 +20,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<h3>会員登録がお済みでない方</h3>
+<%= link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。
