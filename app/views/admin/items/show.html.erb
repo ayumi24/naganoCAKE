@@ -1,2 +1,11 @@
 <h1>商品詳細</h1>
-
+<%= image_tag @item.image, size: '150x100' %>
+<table>
+  <tbody>
+    <tr><p>商品名</p><%= @item.name %></tr>
+    <tr><p>商品説明</p><%= @item.introduction %></tr>
+    <tr><p>ジャンル</p><%= @item.genre.name %></tr>
+    <tr><p>税込価格</p><%= @item.price %>円</tr>
+  </tbody>
+</table>
+<%= link_to '編集する', edit_admin_item_path(@item.id) %>
