@@ -1,7 +1,5 @@
-<h2>新規会員登録</h2>
-
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+<h1>会員情報編集</h1>
+<%= form_with model: @customer, url: public_customer_path(@customer.id), method: :patch do |f| %>
 
   <div class="field">
     <%= f.label :名前 %>
@@ -24,8 +22,7 @@
     <%= f.label :郵便番号（ハイフンなし） %>
     <%= f.text_field :postal_code %>
   </div>
-
-  <div class="field">
+   <div class="field">
     <%= f.label :住所 %>
     <%= f.text_field :address %>
   </div>
@@ -49,10 +46,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "編集内容を保存する" %>
   </div>
 <% end %>
 
-<h2>既に登録済みの方</h2>
 
-<%= link_to 'こちら', new_customer_session_path %>からログインしてください
+
+
