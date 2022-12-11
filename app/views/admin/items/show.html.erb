@@ -1,5 +1,5 @@
 <h1>商品詳細</h1>
-<%= image_tag @item.image, size: '150x100' %>
+<%= image_tag @item.get_image, size: '150x100' %>
 <table>
   <tbody>
     <tr><p>商品名</p><%= @item.name %></tr>
