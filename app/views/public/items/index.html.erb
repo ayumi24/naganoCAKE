@@ -4,7 +4,7 @@
    <% @items.each do |item| %>
     <tr>
       <td><%= image_tag item.get_image, size: '100x100' %></td>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
+      <td><%= link_to item.name, public_item_path(item.id) %></td>
       <td><%= item.price %>円</td>
     </tr>
     <% end %>
