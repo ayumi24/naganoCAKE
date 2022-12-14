@@ -4,5 +4,10 @@
   <tbody>
     <tr><p>商品説明</p><%= @item.introduction %></tr>
     <tr><p>税込価格</p><%= @item.price %>円</tr>
+    <tr><%= form_with model: @cart_item do |f| %>
+    <%= f.hidden_field :@item %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.submit 'カートに入れる' %>
+    <% end %></tr>
   </tbody>
 </table>
