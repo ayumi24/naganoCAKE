@@ -1,2 +1,12 @@
 <h2>ショッピングカート</h2>
+<table>
+    <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+            <td><%= cart_item.item.id %></td>
+            <td><%= cart_item.amount %></td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>
 
