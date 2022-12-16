@@ -11,9 +11,10 @@
         <tr>
             <td><%= image_tag cart_item.item.get_image(80,80) %></td>
             <td><%= cart_item.item.name %></td>
-            <td>単価</td>
+            <td><%= cart_item.item.with_tax_price %></td>
             <td><%= cart_item.amount %></td>
-            <td>小計</td>
+            <td><%= cart_item.subtotal %></td><br>
+            <%= @total += cart_item.subtotal %>
             <% end %>
         </tr>
     </tbody>
