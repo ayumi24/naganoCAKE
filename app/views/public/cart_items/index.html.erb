@@ -1,10 +1,18 @@
 <h2>ショッピングカート</h2>
 <table>
+    <thead>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+    </thead>
     <tbody>
         <% @cart_items.each do |cart_item| %>
         <tr>
-            <td><%= cart_item.item.id %></td>
+            <td><%= cart_item.item.name %></td>
+            <td>単価</td>
             <td><%= cart_item.amount %></td>
+            <td>小計</td>
             <% end %>
         </tr>
     </tbody>
