@@ -1,8 +1,12 @@
 <h1>注文情報入力画面</h1>
 <%= form_with model: @order do |f| %>
-<%= f.radio_button :payment_method, "credit_card" %>
-<%= f.label :payment_method_credit_card, "クレジットカード" %><br>
+<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+<%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
 
-<%= f.radio_button :payment_method, "transfer" %>
-<%= f.label :payment_method_transfer, "銀行振込" %>
+<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+<%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%><br>
+
+<%= f.radio_button :addresses, "ご自身の住所" %>
+
 <% end %>
+
