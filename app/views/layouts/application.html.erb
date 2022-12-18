@@ -19,43 +19,43 @@
             <%= link_to admin_items_path do %>
             <button class="btn btn-outline-dark">商品一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to admin_customers_path do %>
             <button class="btn btn-outline-dark">会員一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to admin_genres_path do %>
             <button class="btn btn-outline-dark">ジャンル一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete do %>
             <button class="btn btn-outline-dark">ログアウト</button>
           </li>
-          <% end %>
+            <% end %>
        <% else %>
           <li>
             <%= link_to public_customer_path(current_customer.id) do%>
             <button class="btn btn-outline-dark">マイページ</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to public_items_path do %>
             <button class="btn btn-outline-dark">商品一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to public_cart_items_path do %>
             <button class="btn btn-outline-dark">カート</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete do %>
             <button class="btn btn-outline-dark">ログアウト</button>
           </li>
-          <% end %>
+            <% end %>
        <% end %>
 
        <% elsif customer_signed_in? %>
@@ -63,43 +63,43 @@
             <%= link_to public_customer_path(current_customer.id) do%>
             <button class="btn btn-outline-dark">マイページ</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to public_items_path do %>
             <button class="btn btn-outline-dark">商品一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to public_cart_items_path do %>
             <button class="btn btn-outline-dark">カート</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete do %>
             <button class="btn btn-outline-dark">ログアウト</button>
           </li>
-          <% end %>
+            <% end %>
        <% else %>
           <li>
             <%= link_to public_homes_about_path do %>
             <button class="btn btn-outline-dark">About</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to public_items_path do %>
             <button class="btn btn-outline-dark">商品一覧</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to new_customer_registration_path do %>
             <button class="btn btn-outline-dark">新規登録</button>
           </li>
-          <% end %>
+            <% end %>
           <li>
             <%= link_to new_customer_session_path do %>
             <button class="btn btn-outline-dark">ログイン</button>
           </li>
-          <% end %>
+            <% end %>
        <% end %>
        </ul>
     </header>

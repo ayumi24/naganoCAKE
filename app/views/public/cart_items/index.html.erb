@@ -1,4 +1,5 @@
 <h2>ショッピングカート</h2>
+<%= link_to "カートを空にする", destroy_all_public_cart_items_path, class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に空にしますか？" %>
 <table class="table table-bordered border-dark">
     <thead class="table-secondary">
         <th scope="col">商品名</th>

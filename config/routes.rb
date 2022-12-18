@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+        collection do
+        delete :destroy_all
+      end
+    end
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
