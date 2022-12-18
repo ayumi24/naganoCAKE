@@ -1,0 +1,8 @@
+<h1>注文情報入力画面</h1>
+<%= form_with model: @order do |f| %>
+<%= f.radio_button :payment_method, "credit_card" %>
+<%= f.label :payment_method_credit_card, "クレジットカード" %><br>
+
+<%= f.radio_button :payment_method, "transfer" %>
+<%= f.label :payment_method_transfer, "銀行振込" %>
+<% end %>
