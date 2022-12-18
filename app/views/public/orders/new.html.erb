@@ -6,7 +6,6 @@
 <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
 <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%><br>
 
-<%= f.radio_button :addresses, "ご自身の住所" %>
 
 <% end %>
 

@@ -20,7 +20,12 @@ Rails.application.routes.draw do
         delete :destroy_all
       end
     end
-    resources :orders, only: [:new, :index, :show, :create]
+    resources :orders, only: [:new, :index, :show, :create] do
+      collection do
+        post :comfilm
+        get :complete
+      end
+    end
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
