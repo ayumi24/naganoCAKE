@@ -6,5 +6,17 @@
 <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
 <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%><br>
 
+<%= f.radio_button :address_option,0 %>
+<%= f.label :address_option, "ご自身の住所" %>
+<%= current_customer.postal_code %><%= current_customer.address %>
+<%= current_customer.full_name %><br>
+
+<%= f.radio_button :address_option,1 %>
+<%= f.label :address_option, "新しいお届け先" %>
+郵便番号（ハイフン無し）<%= f.text_field :postal_code %><br>
+住所<%= f.text_field :address %><br>
+宛名<%= f.text_field :name %><br>
+
+<%= f.submit "確認画面へ進む" %>
 <% end %>
 
