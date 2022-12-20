@@ -1,5 +1,5 @@
 <h1>注文情報入力画面</h1>
-<%= form_with model: @order, url: comfilm_public_orders_path, method: :post do |f| %>
+<%= form_with model: @order, url: confirm_public_orders_path, method: :post do |f| %>
 <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
 <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
 
