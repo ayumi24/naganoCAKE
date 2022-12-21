@@ -1,7 +1,7 @@
 ja:
   enums:
     order:
-      payment_method:
+      payment:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
       status_method:

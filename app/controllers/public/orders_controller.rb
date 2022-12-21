@@ -4,7 +4,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    redirect_to complete_public_orders_path
+    cart_items.destroy_all
   end
 
   def index
@@ -22,7 +26,7 @@ class Public::OrdersController < ApplicationController
     if params[:order][:address_option] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
       @order.postage = 800
     elsif params[:order][:addresss_option] == "1"
       @order.postage = 800
