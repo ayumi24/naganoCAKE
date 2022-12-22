@@ -12,17 +12,21 @@
       <td><%= cart_item.item.with_tax_price %></td>
       <td><%= cart_item.amount %></td>
       <td><%= cart_item.subtotal %></td><br>
-      <td><% @total += cart_item.subtotal %></td>
+      <% @total += cart_item.subtotal %>
   </tr>
 <% end %>
 </table>
-<%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
+<table>
+  <tbody>
+  <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
     <tr>
       <td>送料<%= @order.postage %></td><br>
       <td>商品合計<%= @total %></td>
       <td>請求額<%= @total + @order.postage %></td>
       <%= f.hidden_field :price, :value => @total + @order.postage %>
     </tr>
+  </tbody>
+</table>
     <tr>
       <td>支払い方法
       <%= f.hidden_field :payment, :value => @order.payment %>

@@ -8,16 +8,19 @@
         <th>注文詳細</th>
     </thead>
     <tbody>
-        <% @orders.each do |order| %>
-        <tr>
-            <td>注文日</td>
+            <% @orders.each do |order| %>
+            <tr>
+            <td><%= order.created_at %></td>
             <td>〒<%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
-            <td><% @cart_items.each do |cart_item| %>
-            <%= cart_item.item.name %>
-            <% end %></td>
+            <td><% order.order_details.each do |order_detail| %>
+                <% order_detail.items.each do |item| %>
+                <%= item.name %><br>
+                <% end %>
+                <% end %></td>
             <td><%= order.price %></td>
             <td><%= link_to '表示する', public_order_path(order.id), class: "btn btn-sm btn-primary" %></td>
+            </tr>
             <% end %>
-        </tr>
+
     </tbody>
 </table>
