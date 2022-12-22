@@ -4,18 +4,24 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    cart_items = current_customer.cart_items.all
+    @cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
+    @order.postage = 800
     @order.save
     redirect_to complete_public_orders_path
-    cart_items.destroy_all
+    @cart_items.destroy_all
+  end
+
+  def complete
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
+    @cart_items = current_customer.cart_items
   end
 
   def show
+    @orders = current_customer.orders
   end
 
   def confirm
@@ -36,6 +42,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-  params.require(:order).permit(:payment_method, :postal_code, :address, :name, :price, :postage)
+  params.require(:order).permit(:payment, :postal_code, :address, :name, :price, :postage)
   end
 end

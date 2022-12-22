@@ -1,6 +1,23 @@
 <h1>注文履歴一覧</h1>
-<% @orders.each do |order| %>
-<%= order.postal_code %>
-<%= order.address %>
-<%= order.name %>
-<% end %>
+<table class="table table-bordered border-dark">
+    <thead class="table-secondary">
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払い金額</th>
+        <th>注文詳細</th>
+    </thead>
+    <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+            <td>注文日</td>
+            <td>〒<%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
+            <td><% @cart_items.each do |cart_item| %>
+            <%= cart_item.item.name %>
+            <% end %></td>
+            <td><%= order.price %></td>
+            <td><%= link_to '表示する', public_order_path(order.id), class: "btn btn-sm btn-primary" %></td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>
