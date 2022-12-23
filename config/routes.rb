@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top'
+    resources :orders, only: [:show]
     resources :customers, only: [:index, :show]
     resources :items, only: [:new, :index, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     get 'homes/about'
+
     resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]

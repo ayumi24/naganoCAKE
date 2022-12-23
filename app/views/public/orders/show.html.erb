@@ -1,7 +1,7 @@
 <h1>注文履歴詳細画面</h1>
 
   <h4>注文情報</h4>
-    注文日<%= @order.created_at %><br>
+    注文日<%= @order.created_at.strftime('%Y/%m/%d') %><br>
     配送先〒<%= @order.postal_code %><br>
     <%= @order.address %><br>
     <%= @order.name %><br>
