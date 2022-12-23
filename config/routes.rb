@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/about'
 
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:show, :edit, :update] do
+      collection do
+        get :unsubscribe
+        patch :withdraw
+      end
+    end
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :cart_items, only: [:index, :create, :update, :destroy] do
