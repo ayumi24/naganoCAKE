@@ -1,11 +1,13 @@
 <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
-<%= @customer.id %><br>
-<%= @customer.last_name %><%= @customer.first_name %><br>
-<%= @customer.last_name_kana %><%= @customer.first_name_kana %><br>
-<%= @customer.postal_code %><br>
-<%= @customer.address %><br>
-<%= @customer.telephone_number %><br>
-<%= @customer.email %><br>
+会員ID<%= @customer.id %><br>
+氏名<%= @customer.last_name %><%= @customer.first_name %><br>
+フリガナ<%= @customer.last_name_kana %><%= @customer.first_name_kana %><br>
+郵便番号<%= @customer.postal_code %><br>
+住所<%= @customer.address %><br>
+電話番号<%= @customer.telephone_number %><br>
+メールアドレス<%= @customer.email %><br>
+<%= form_with model: @customer, url: edit_admin_customer_path, method: :patch do |f| %>
 
-
+<% end %>
 <%= link_to '編集する', edit_admin_customer_path(@customer.id) %>
+

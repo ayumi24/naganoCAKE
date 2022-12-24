@@ -1,13 +1,19 @@
-<h1><%= @item.name %></h1>
-<%= image_tag @item.get_image(150,150) %>
-<table>
-  <tbody>
-    <tr><p>商品説明</p><%= @item.introduction %></tr>
-    <tr><p>税込価格</p><%= @item.price %>円</tr>
-    <tr><td><%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
-    <%= f.hidden_field :item_id, :value => @item.id %>
-    <%= f.select :amount, *[1..10] %><br>
-    <%= f.submit 'カートに入れる' %>
-    <% end %></td></tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="justify-content-center">
+      <table>
+        <h4><strong><%= @item.name %></strong></h4>
+        <%= image_tag @item.get_image(300,300) %>
+        <tbody>
+          <tr><p>商品説明</p><%= @item.introduction %></tr>
+          <tr><p>税込価格</p><%= @item.price %>円</tr>
+          <tr><td><%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.select :amount, *[1..10] %><br>
+          <%= f.submit 'カートに入れる', class: "btn btn-sm btn-success" %>
+          <% end %></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

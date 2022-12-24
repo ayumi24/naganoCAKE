@@ -14,7 +14,6 @@
     <header>
       <ul class="nav justify-content-end">
      <% if admin_signed_in? %>
-        <% if request.fullpath.include? "/admin" %>
           <li>
             <%= link_to admin_items_path do %>
             <button class="btn btn-outline-dark">商品一覧</button>
@@ -40,32 +39,9 @@
             <button class="btn btn-outline-dark">ログアウト</button>
           </li>
             <% end %>
-       <% else %>
-          <li>
-            <%= link_to public_customer_path(current_customer.id) do%>
-            <button class="btn btn-outline-dark">マイページ</button>
-          </li>
-            <% end %>
-          <li>
-            <%= link_to public_items_path do %>
-            <button class="btn btn-outline-dark">商品一覧</button>
-          </li>
-            <% end %>
-          <li>
-            <%= link_to public_cart_items_path do %>
-            <button class="btn btn-outline-dark">カート</button>
-          </li>
-            <% end %>
-          <li>
-            <%= link_to destroy_customer_session_path, method: :delete do %>
-            <button class="btn btn-outline-dark">ログアウト</button>
-          </li>
-            <% end %>
-       <% end %>
-
        <% elsif customer_signed_in? %>
           <li>
-            <%= link_to public_customer_path(current_customer.id) do%>
+            <%= link_to public_customer_path(current_customer.id) do %>
             <button class="btn btn-outline-dark">マイページ</button>
           </li>
             <% end %>

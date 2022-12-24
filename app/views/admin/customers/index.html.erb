@@ -1,5 +1,11 @@
 <h2>会員一覧</h2>
 <table class="table table-striped">
+  <thead>
+    <th>会員ID</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+  </thead>
   <tbody>
     <% @customers.each do |c| %>
     <tr>
@@ -8,6 +14,11 @@
       <%= c.last_name %><%= c.first_name %>
       <% end %></td>
       <td><%= c.email %></td>
+      <td><% if c.is_deleted == false %>
+      有効
+      <% else %>
+      退会
+    <% end %></td>
     </tr>
     <% end %>
   </tbody>
