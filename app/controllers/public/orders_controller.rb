@@ -22,6 +22,7 @@ class Public::OrdersController < ApplicationController
   def show
     @orders = current_customer.orders
     @order = Order.find(params[:id])
+    @total = 0
   end
 
   def confirm

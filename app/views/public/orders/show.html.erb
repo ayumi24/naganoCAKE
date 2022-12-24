@@ -8,14 +8,18 @@
     支払方法<%= @order.payment_i18n %>
 
   <h4>請求情報</h4>
-    商品合計<br>
+    商品合計<%= @order.price - @order.postage %><br>
     配送料<%= @order.postage %><br>
     ご請求額<%= @order.price %>
 
   <h4>注文内容</h4>
     <table>
       <thead>
-        <th>商品</th>
+        <th>商品<% @order.order_details.each do |order_detail| %>
+                <% order_detail.items.each do |item| %>
+                <%= item.name %><br>
+                <% end %>
+                <% end %></th>
         <th>単価</th>
         <th>個数</th>
         <th>小計</th>

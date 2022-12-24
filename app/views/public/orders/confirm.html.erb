@@ -22,8 +22,8 @@
     <tr>
       <td>送料<%= @order.postage %></td><br>
       <td>商品合計<%= @total %></td>
-      <td>請求額<%= @total + @order.postage %></td>
-      <%= f.hidden_field :price, :value => @total + @order.postage %>
+      <td>請求額<%= @total + @order.postage.to_i %></td>
+      <%= f.hidden_field :price, :value => @total + @order.postage.to_i %>
     </tr>
   </tbody>
 </table>
