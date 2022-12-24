@@ -1,14 +1,21 @@
-<h1>会員topページ</h1>
-<h2>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。</h2>
+<div class="container px-5 px-sm-0">
+  <div class="mx-auto">
+    <h4>ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。</h4>
+  </div>
 
-<h1>新着商品</h1>
-<% @items.each do |item| %>
-<%= image_tag item.get_image(100,100) %>
-<%= item.name %>
-¥<%= item.price %>
-<% end %>
+  <h1>新着商品</h1>
+    <div class="row">
+    <% @items.each do |item| %>
+        <div class="col-md-3">
+            <%= image_tag item.get_image(100,100) %><br>
+            <%= item.name %><br>
+            ¥<%= item.price %>
+          </div>
+      <% end %>
+    </div>
 
-<%= link_to '全ての商品を見る>', public_items_path %>
+  <%= link_to '全ての商品を見る>', public_items_path %>
+</div>
