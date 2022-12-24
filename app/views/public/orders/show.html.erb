@@ -15,18 +15,19 @@
   <h4>注文内容</h4>
     <table>
       <thead>
-        <th>商品<% @order.order_details.each do |order_detail| %>
-                <% order_detail.items.each do |item| %>
-                <%= item.name %><br>
-                <% end %>
-                <% end %></th>
-        <th>単価</th>
+        <th>商品</th>
+        <th>単価（税込）</th>
         <th>個数</th>
         <th>小計</th>
       </thead>
         <tbody>
+          <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.price %></td>
           </tr>
+        <% end %>
         </tbody>
     </table>
