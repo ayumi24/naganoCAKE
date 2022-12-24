@@ -12,6 +12,9 @@
 
   <body>
     <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/" >ながのCAKE</a>
       <ul class="nav justify-content-end">
      <% if admin_signed_in? %>
           <li>
@@ -83,6 +86,8 @@
             <% end %>
        <% end %>
        </ul>
+      </div>
+      </nav>
     </header>
     <%= yield %>
   </body>

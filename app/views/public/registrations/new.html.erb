@@ -1,41 +1,42 @@
-<h2>新規会員登録</h2>
+<div class="m-5">
+<h4><strong>新規会員登録</strong></h4>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
+  <div class="container">
+  <div class="form-group">
     <%= f.label :名前 %>
     （姓）<%= f.text_field :last_name %>
     （名）<%= f.text_field :first_name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :フリガナ %>
     （セイ）<%= f.text_field :last_name_kana %>
     （メイ）<%= f.text_field :first_name_kana %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :メールアドレス %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :郵便番号（ハイフンなし） %>
     <%= f.text_field :postal_code %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :住所 %>
     <%= f.text_field :address %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :電話番号（ハイフンなし） %>
     <%= f.text_field :telephone_number %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -43,16 +44,17 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :パスワード（確認用） %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
   </div>
 <% end %>
-
-<h2>既に登録済みの方</h2>
-
+</div>
+<h4><strong>既に登録済みの方</strong></h4>
 <%= link_to 'こちら', new_customer_session_path %>からログインしてください
+</div>
+
