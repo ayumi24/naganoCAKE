@@ -5,3 +5,10 @@
 購入には会員登録が必要になります。</h2>
 
 <h1>新着商品</h1>
+<% @items.each do |item| %>
+<%= image_tag item.get_image(100,100) %>
+<%= item.name %>
+¥<%= item.price %>
+<% end %>
+
+<%= link_to '全ての商品を見る>', public_items_path %>
