@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/about'
 
-    resources :customers, only: [:show, :edit, :update] do
+    resource :customers, only: [:show, :edit, :update] do
       collection do
         get :unsubscribe
         patch :withdraw

@@ -20,9 +20,9 @@
   <div class="col-md-4">
   <h4>請求情報</h4>
 
-    商品合計<%= @order.price - @order.postage %><br>
+    商品合計<%= (@order.price - @order.postage).to_s(:delimited) %><br>
     配送料<%= @order.postage %><br>
-    ご請求額<%= @order.price %>
+    ご請求額<%= @order.price.to_s(:delimited) %>
   </div>
     </div>
   </div>
@@ -41,9 +41,9 @@
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= order_detail.price %></td>
+            <td><%= order_detail.price.to_s(:delimited) %></td>
           </tr>
         <% end %>
         </tbody>

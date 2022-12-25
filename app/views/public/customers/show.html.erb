@@ -1,6 +1,6 @@
 <div class="container m-5">
     <h2>マイページ</h2>
-    <h4><strong>登録情報</strong></h4><%= link_to '編集する', edit_public_customer_path(@customer.id), class:"btn btn-sm btn-success" %> <br>
+    <h4><strong>登録情報</strong></h4><%= link_to '編集する', edit_public_customers_path, class:"btn btn-sm btn-success" %> <br>
     <table class="table table-bordered">
       <tbody>
         <tr><p>氏名</p><%= @customer.last_name %><%= @customer.first_name %></tr>

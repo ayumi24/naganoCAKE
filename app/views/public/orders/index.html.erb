@@ -15,7 +15,7 @@
             <td><% order.order_details.each do |order_detail| %>
                 <%= order_detail.item.name %><br>
                 <% end %></td>
-            <td><%= order.price %>円</td>
+            <td><%= order.price.to_s(:delimited) %>円</td>
             <td><%= link_to '表示する', public_order_path(order.id), class: "btn btn-sm btn-primary" %></td>
             </tr>
             <% end %>

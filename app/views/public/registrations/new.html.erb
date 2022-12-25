@@ -4,12 +4,12 @@
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
   <div class="container">
-  <div class="form-group">
-    <%= f.label :名前 %>
-    （姓）<%= f.text_field :last_name %>
-    （名）<%= f.text_field :first_name %>
+    <table class="table">
+    <th><%= f.label :名前 %></th>
+    <td>（姓）<%= f.text_field :last_name %></td>
+    <td>（名）<%= f.text_field :first_name %></td>
   </div>
-
+  </table>
   <div class="form-group">
     <%= f.label :フリガナ %>
     （セイ）<%= f.text_field :last_name_kana %>
@@ -54,6 +54,7 @@
   </div>
 <% end %>
 </div>
+
 <h4><strong>既に登録済みの方</strong></h4>
 <%= link_to 'こちら', new_customer_session_path %>からログインしてください
 </div>

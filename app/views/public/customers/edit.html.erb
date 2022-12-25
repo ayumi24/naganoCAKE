@@ -31,25 +31,12 @@
     <%= f.label :電話番号（ハイフンなし） %>
     <%= f.text_field :telephone_number %>
   </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード（確認用） %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
   <div class="actions">
     <%= f.submit "編集内容を保存する", class: "btn btn-sm btn-success" %>
   </div>
-  <%= link_to '退会する', unsubscribe_public_customers_path, class: "btn btn-sm btn-danger" %>
 <% end %>
+  <%= link_to '退会する', unsubscribe_public_customers_path, class: "btn btn-sm btn-danger" %>
+
 
 
 

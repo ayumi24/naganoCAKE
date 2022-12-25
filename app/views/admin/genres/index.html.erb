@@ -6,9 +6,25 @@
 
   <% end %>
 
-<h3>ジャンル</h3>
-  <% @genres.each do |genre| %>
-  <span><%= genre.name %></span>
-  <%= link_to "編集する", edit_admin_genre_path(genre.id) %><br>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+<table class="table">
+  <thead>
+    <th>ジャンル</th>
+  </thead>
+  <tbody>
+    <% @genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= genre.name %>
+          <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sm btn-success" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 

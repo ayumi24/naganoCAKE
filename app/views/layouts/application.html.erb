@@ -16,6 +16,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="/" ><strong>ながのCAKE</strong></a>
       <ul class="nav justify-content-end">
+    <% if request.fullpath.include? "admin"  %>
      <% if admin_signed_in? %>
           <li>
             <%= link_to admin_items_path do %>
@@ -42,9 +43,32 @@
             <button class="btn btn-outline-dark mx-2">ログアウト</button>
           </li>
             <% end %>
-       <% elsif customer_signed_in? %>
+          <% else %>
           <li>
-            <%= link_to public_customer_path(current_customer.id) do %>
+            <%= link_to public_homes_about_path do %>
+            <button class="btn btn-outline-dark mx-2">About</button>
+          </li>
+            <% end %>
+          <li>
+            <%= link_to public_items_path do %>
+            <button class="btn btn-outline-dark mx-2">商品一覧</button>
+          </li>
+            <% end %>
+          <li>
+            <%= link_to new_customer_registration_path do %>
+            <button class="btn btn-outline-dark mx-2">新規登録</button>
+          </li>
+            <% end %>
+          <li>
+            <%= link_to new_customer_session_path do %>
+            <button class="btn btn-outline-dark mx-2">ログイン</button>
+          </li>
+            <% end %>
+          <% end %>
+        <% else %>
+       <% if customer_signed_in? %>
+          <li>
+            <%= link_to public_customers_path do %>
             <button class="btn btn-outline-dark mx-2">マイページ</button>
           </li>
             <% end %>
@@ -85,17 +109,17 @@
           </li>
             <% end %>
        <% end %>
+      <% end %>
        </ul>
       </div>
       </nav>
     </header>
     <%= yield %>
   </body>
-  <footer class="footer">
-  <div class="container-fluid m-5">
-    <div class="row border-top border-black">
 
-    </div>
+  <footer class="footer mt-auto py-3 bg-light">
+    <!--<div class="container">
+    </div>-->
+  </footer>
   </div>
-</footer>
 </html>
