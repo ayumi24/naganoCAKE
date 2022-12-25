@@ -1,12 +1,19 @@
-<h1>会員側商品一覧ページ</h1>
-<table class="table">
-  <tbody>
-   <% @items.each do |item| %>
-    <tr>
-      <td><%= image_tag item.get_image(100,100) %></td>
-      <td><%= link_to item.name, public_item_path(item.id) %></td>
-      <td><%= item.price %>円</td>
-    </tr>
-    <% end %>
-    </tbody>
-</table>
+<h4><strong>商品一覧</strong></h4>
+<div class="container">
+  <div class="row">
+    <article class="items d-flex align-content-around flex-wrap mx-3">
+      <% @items.each do |item| %>
+        <div class="col"><%= link_to public_item_path(item.id) do %>
+          <%= image_tag item.get_image(380,180) %>
+          <% end %></td>
+          <p><strong><%= item.name %></strong></hp>
+          <p><strong>¥<%= item.price %></strong></p>
+        </div>
+        </article>
+        <% end %>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <%= paginate @items %>
+</div>
+

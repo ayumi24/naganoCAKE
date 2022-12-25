@@ -1,19 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="justify-content-center">
-      <table>
+    <div class="justify-content-center mt-4">
+      <%= image_tag @item.get_image(300,300) %>
+        <div class="col">
         <h4><strong><%= @item.name %></strong></h4>
-        <%= image_tag @item.get_image(300,300) %>
-        <tbody>
-          <tr><p>商品説明</p><%= @item.introduction %></tr>
-          <tr><p>税込価格</p><%= @item.price %>円</tr>
-          <tr><td><%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
+          <%= @item.introduction %><br>
+          <strong>¥<%= @item.with_tax_price %></strong>（税込）
+          <%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.select :amount, *[1..10] %><br>
+          <%= f.select :amount, *[1..10] %>
           <%= f.submit 'カートに入れる', class: "btn btn-sm btn-success" %>
-          <% end %></td></tr>
-        </tbody>
-      </table>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
