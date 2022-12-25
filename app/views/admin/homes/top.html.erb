@@ -9,11 +9,16 @@
   </thead>
   <tbody>
     <tr><% @orders.each do |order| %>
-      <td><%= link_to "admin_order_path" do %>
+      <td><%= link_to admin_order_path(order.id) do %>
       <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
       <% end %></td>
       <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-      <td></td>
+      <td><% order.order_details.each do |order_detail| %>
+      <% @sum += order_detail.amount %>
+      <% end %>
+      <%= @sum %>
+      <% @sum = 0 %>
+      </td>
     </tr>
     <% end %>
   </tbody>

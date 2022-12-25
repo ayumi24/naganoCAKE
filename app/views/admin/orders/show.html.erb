@@ -1,2 +1,21 @@
 <h1>注文履歴詳細</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p><strong>購入者</strong></p>
+    </div>
+    <div class="col-md-3">
+      <p><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p><strong>お届け先</strong></p>
+    </div>
+    <div class="col-md-3">
+      <p>〒<%= @order.postal_code %><%= @order.address %></p>
+      <p><%= @order.name %></p>
+    </div>
+  </div>
+</div>
 

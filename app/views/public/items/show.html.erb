@@ -5,7 +5,7 @@
         <div class="col">
         <h4><strong><%= @item.name %></strong></h4>
           <%= @item.introduction %><br>
-          <strong>¥<%= @item.with_tax_price %></strong>（税込）
+          <strong>¥<%= @item.with_tax_price.to_s(:delimited) %></strong>（税込）
           <%= form_with model: @cart_item, url: public_cart_items_path do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.select :amount, *[1..10] %>

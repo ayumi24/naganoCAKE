@@ -49,6 +49,8 @@ class Public::OrdersController < ApplicationController
       @order.postage = 800
     elsif params[:order][:addresss_option] == "1"
       @order.postage = 800
+    elsif params[:order][:address_option] == nil
+      redirect_to new_public_order_path
     end
   end
 

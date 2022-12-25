@@ -1,15 +1,15 @@
+<div class="title mt-5 pl-5">
 <h4><strong>商品一覧</strong></h4>
+</div>
 <div class="container">
   <div class="row">
-    <article class="items d-flex align-content-around flex-wrap mx-3">
       <% @items.each do |item| %>
-        <div class="col"><%= link_to public_item_path(item.id) do %>
+        <div class="col-md-3"><%= link_to public_item_path(item.id) do %>
           <%= image_tag item.get_image(380,180) %>
           <% end %></td>
           <p><strong><%= item.name %></strong></hp>
-          <p><strong>¥<%= item.price %></strong></p>
+          <p><strong>¥<%= item.price.to_s(:delimited) %></strong></p>
         </div>
-        </article>
         <% end %>
   </div>
 </div>
