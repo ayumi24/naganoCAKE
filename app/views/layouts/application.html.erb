@@ -12,76 +12,76 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light p-4 border-bottom-black">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/" >ながのCAKE</a>
+          <a class="navbar-brand" href="/" ><strong>ながのCAKE</strong></a>
       <ul class="nav justify-content-end">
      <% if admin_signed_in? %>
           <li>
             <%= link_to admin_items_path do %>
-            <button class="btn btn-outline-dark">商品一覧</button>
+            <button class="btn btn-outline-dark mx-2">商品一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to admin_customers_path do %>
-            <button class="btn btn-outline-dark">会員一覧</button>
+            <button class="btn btn-outline-dark mx-2">会員一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to admin_homes_top_path do %>
-            <button class="btn btn-outline-dark">注文履歴一覧</button>
+            <button class="btn btn-outline-dark mx-2">注文履歴一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to admin_genres_path do %>
-            <button class="btn btn-outline-dark">ジャンル一覧</button>
+            <button class="btn btn-outline-dark mx-2">ジャンル一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete do %>
-            <button class="btn btn-outline-dark">ログアウト</button>
+            <button class="btn btn-outline-dark mx-2">ログアウト</button>
           </li>
             <% end %>
        <% elsif customer_signed_in? %>
           <li>
             <%= link_to public_customer_path(current_customer.id) do %>
-            <button class="btn btn-outline-dark">マイページ</button>
+            <button class="btn btn-outline-dark mx-2">マイページ</button>
           </li>
             <% end %>
           <li>
             <%= link_to public_items_path do %>
-            <button class="btn btn-outline-dark">商品一覧</button>
+            <button class="btn btn-outline-dark mx-2">商品一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to public_cart_items_path do %>
-            <button class="btn btn-outline-dark">カート</button>
+            <button class="btn btn-outline-dark mx-2">カート</button>
           </li>
             <% end %>
           <li>
             <%= link_to destroy_customer_session_path, method: :delete do %>
-            <button class="btn btn-outline-dark">ログアウト</button>
+            <button class="btn btn-outline-dark mx-2">ログアウト</button>
           </li>
             <% end %>
        <% else %>
           <li>
             <%= link_to public_homes_about_path do %>
-            <button class="btn btn-outline-dark">About</button>
+            <button class="btn btn-outline-dark mx-2">About</button>
           </li>
             <% end %>
           <li>
             <%= link_to public_items_path do %>
-            <button class="btn btn-outline-dark">商品一覧</button>
+            <button class="btn btn-outline-dark mx-2">商品一覧</button>
           </li>
             <% end %>
           <li>
             <%= link_to new_customer_registration_path do %>
-            <button class="btn btn-outline-dark">新規登録</button>
+            <button class="btn btn-outline-dark mx-2">新規登録</button>
           </li>
             <% end %>
           <li>
             <%= link_to new_customer_session_path do %>
-            <button class="btn btn-outline-dark">ログイン</button>
+            <button class="btn btn-outline-dark mx-2">ログイン</button>
           </li>
             <% end %>
        <% end %>
@@ -91,4 +91,11 @@
     </header>
     <%= yield %>
   </body>
+  <footer class="footer">
+  <div class="container-fluid m-5">
+    <div class="row border-top border-black">
+
+    </div>
+  </div>
+</footer>
 </html>
