@@ -1,36 +1,41 @@
 <h1>会員情報編集</h1>
 <%= form_with model: @customer, url: public_customers_path(@customer.id), method: :patch do |f| %>
+  <div class="container">
+    <table class="table-borderless">
+      <th><%= f.label :名前 %></th>
+      <td>（姓）<%= f.text_field :last_name %></td>
+      <td>（名）<%= f.text_field :first_name %></td>
+    </table>
 
-  <div class="field">
-    <%= f.label :名前 %>
-    （姓）<%= f.text_field :last_name %>
-    （名）<%= f.text_field :first_name %>
-  </div>
+  <table class="table-borderless">
+    <th><%= f.label :フリガナ %></th>
+    <td>（セイ）<%= f.text_field :last_name_kana %></td>
+    <td>（メイ）<%= f.text_field :first_name_kana %></td>
+  </table>
 
-  <div class="field">
-    <%= f.label :フリガナ %>
-    （セイ）<%= f.text_field :last_name_kana %>
-    （メイ）<%= f.text_field :first_name_kana %>
-  </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <table class="table-borderless">
+    <th><%= f.label :メールアドレス %></th>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+  </table>
 
-  <div class="field">
-    <%= f.label :郵便番号（ハイフンなし） %>
-    <%= f.text_field :postal_code %>
-  </div>
-   <div class="field">
-    <%= f.label :住所 %>
-    <%= f.text_field :address %>
-  </div>
 
-  <div class="field">
-    <%= f.label :電話番号（ハイフンなし） %>
-    <%= f.text_field :telephone_number %>
-  </div>
+  <table class="table-borderless">
+    <th><%= f.label :郵便番号（ハイフンなし） %></th>
+    <td><%= f.text_field :postal_code %></td>
+  </table>
+
+
+  <table class="table-borderless">
+    <th><%= f.label :住所 %></th>
+    <td><%= f.text_field :address %></td>
+  </table>
+
+  <table class="table-borderless">
+    <th><%= f.label :電話番号（ハイフンなし） %></th>
+    <td><%= f.text_field :telephone_number %></td>
+  </table>
+
   <div class="actions">
     <%= f.submit "編集内容を保存する", class: "btn btn-sm btn-success" %>
   </div>

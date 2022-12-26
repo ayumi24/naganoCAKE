@@ -9,23 +9,28 @@
       <td>（姓）<%= f.text_field :last_name %></td>
       <td>（名）<%= f.text_field :first_name %></td>
     </table>
+
     <table class="table-borderless">
       <th><%= f.label :フリガナ %></th>
       <td>（セイ）<%= f.text_field :last_name_kana %></td>
       <td>（メイ）<%= f.text_field :first_name_kana %></td>
     </table>
+
   <table class="table-borderless">
     <th><%= f.label :メールアドレス %></th>
     <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
   </table>
+
   <table class="table-borderless">
     <th><%= f.label :郵便番号（ハイフンなし） %></th>
     <td><%= f.text_field :postal_code %></td>
   </table>
+
   <table class="table-borderless">
     <th><%= f.label :住所 %></th>
     <td><%= f.text_field :address %></td>
   </table>
+
   <table class="table-borderless">
     <th><%= f.label :電話番号（ハイフンなし） %></th>
     <td><%= f.text_field :telephone_number %></td>
