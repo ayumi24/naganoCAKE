@@ -12,7 +12,7 @@
     <div class="col-md-5"></div>
     <div class="col-md-7">
       <%= link_to "退会しない", public_customers_path(current_customer), class: "btn btn-sm btn-primary" %>
-      <%= link_to "退会する", withdraw_public_customers_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class: "btn btn-sm btn-danger" %>
+      <%= link_to "退会する", withdraw_public_customers_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-sm btn-danger" %>
     </div>
   </div>
 </div>

@@ -6,8 +6,12 @@
 住所<%= @customer.address %><br>
 電話番号<%= @customer.telephone_number %><br>
 メールアドレス<%= @customer.email %><br>
+会員ステータス<% if @customer.is_deleted == false %>
+      有効
+      <% else %>
+      退会
+    <% end %></td><br>
 <%= form_with model: @customer, url: edit_admin_customer_path, method: :patch do |f| %>
-
 <% end %>
 <%= link_to '編集する', edit_admin_customer_path(@customer.id) %>
 
