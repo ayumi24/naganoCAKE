@@ -10,7 +10,7 @@ class Public::CustomersController < ApplicationController
   def update
     customer = current_customer
     customer.update(customer_params)
-    redirect_to public_customer_path(customer.id)
+    redirect_to public_customers_path(customer.id)
   end
 
   def unsubscribe

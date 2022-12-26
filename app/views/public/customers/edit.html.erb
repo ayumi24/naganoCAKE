@@ -1,5 +1,5 @@
 <h1>会員情報編集</h1>
-<%= form_with model: @customer, url: public_customer_path(@customer.id), method: :patch do |f| %>
+<%= form_with model: @customer, url: public_customers_path(@customer.id), method: :patch do |f| %>
 
   <div class="field">
     <%= f.label :名前 %>
