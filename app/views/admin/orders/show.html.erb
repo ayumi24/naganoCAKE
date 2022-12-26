@@ -7,7 +7,7 @@
       <p><strong>購入者</strong></p>
     </div>
     <div class="col-md-3">
-      <p><%= link_to admin_customer_path(@order.id) do %>
+      <p><%= link_to admin_customer_path(@customer.id) do %>
         <%= @order.customer.last_name %><%= @order.customer.first_name %>
         <% end %></p>
     </div>
@@ -30,10 +30,10 @@
     </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <p><strong>支払方法</strong></p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-8">
         <p><%= @order.payment_i18n %></p>
       </div>
     </div>
